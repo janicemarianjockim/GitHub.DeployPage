@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+<body style="background-color: lemonchiffon;">
+<center><h3>SIMPLE CALCULATOR</h3>
+<div ng-app="CalculatorApp" ng-controller="CalculatorController">
+    <p>Operand 1</p>
+    <p><input type="number" ng-model="a"></p>
+    <p>Operand 2</p>
+    <p><input type="number" ng-model="b"></p>
+    <p>Choose operation</p>
+    <p><select ng-model="operator">
+        <option>+</option>
+        <option>*</option>
+        <option>-</option>
+        <option>/</option>
+    </select></p>
+    <p>ANSWER</p>
+    <p>{{ result() }}</p>
+</div>
+</center>
+<script>
+    angular.module('CalculatorApp', [])
+        .controller('CalculatorController', function($scope) 
+        {
+            $scope.result = function() 
+            {
+                if ($scope.operator == '+') 
+                {
+                    return $scope.a + $scope.b;
+                }
+                if ($scope.operator == '-') 
+                {
+                    return $scope.a - $scope.b;
+                }
+                if ($scope.operator == '*') 
+                {
+                    return $scope.a * $scope.b;
+                }
+                if ($scope.operator == '/') 
+                {
+                    return $scope.a / $scope.b;
+                }
+            };
+        });
+</script>
+</body>
+</html>
